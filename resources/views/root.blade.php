@@ -4,22 +4,23 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300..900&display=swap" rel="stylesheet">
-    @spladeHead
-    @vite('resources/js/app.js')
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <style>
-        .bg-image {
-            background-size: cover;
-            background-position: center;
-        }
-    </style>
+    <title>{{ config('app.name', 'Laravel') }}</title>
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
+
+    <!-- Scripts -->
+    @vite(['resources/js/app.js'])
+
+    @spladeHead
 </head>
 
-<body class="font-Rubik font-extrabold">
+<body class="font-sans antialiased">
     @splade
+    
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
 </body>
 
 </html>

@@ -15,11 +15,7 @@ export default {
     ],
 
     theme: {
-        extend: {
-            fontFamily: {
-                'Rubik': 'Rubik'
-            },
-        },
+        extend: {},
     },
 
     plugins: [forms, typography],

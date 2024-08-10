@@ -1,51 +1,38 @@
 <x-splade-data default="{ open: false }">
-    <nav class="fixed top-0  w-full">
-        <!-- Primary Navigation Menu -->
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16">
-                <div class="flex">
-                    <!-- Logo -->
-                    <div class="shrink-0 flex items-center">
-                        <a href="{{ route('home') }}">
-                            <x-application-mark class="block h-9 w-auto" />
-                        </a>
-                    </div>
 
-                    <!-- Navigation Links -->
-                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <x-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
-                            {{ __('Home') }}
-                        </x-nav-link>
 
-                        <x-nav-link href="{{ route('docs') }}" :active="request()->routeIs('docs')">
-                            {{ __('Documentation') }}
-                        </x-nav-link>
-                    </div>
-                </div>
 
-                <!-- Hamburger -->
-                <div class="-mr-2 flex items-center sm:hidden">
-                    <button @click="data.open = ! data.open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition">
-                        <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                            <path v-bind:class="{'hidden': data.open, 'inline-flex': ! data.open }" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                            <path v-bind:class="{'hidden': ! data.open, 'inline-flex': data.open }" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </div>
+    <nav class="bg-transparent fixed top-0 w-full">
+        <div class="flex flex-wrap items-center justify-between mx-auto p-4">
+            <Link class="flex items-center space-x-3 rtl:space-x-reverse">
+            <span class="self-center text-2xl font-semibold">InkShelf</span>
+            </Link>
+            <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm rounded-lg md:hidden" aria-controls="navbar-default" aria-expanded="false">
+                <span class="sr-only">Open main menu</span>
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15" />
+                </svg>
+            </button>
+            <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+                <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
 
-        <!-- Responsive Navigation Menu -->
-        <div v-bind:class="{'block': data.open, 'hidden': ! data.open }" class="sm:hidden">
-            <div class="pt-2 pb-3 space-y-1">
-                <x-responsive-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
-                    {{ __('Home') }}
-                </x-responsive-nav-link>
-
-                <x-responsive-nav-link href="{{ route('docs') }}" :active="request()->routeIs('docs')">
-                    {{ __('Documentation') }}
-                </x-responsive-nav-link>
+                    <li>
+                        <Link href="#" class="block py-2 px-3 rounded hover:text-gray-200 md:border-0 md:p-0 text-white">Books</Link>
+                    </li>
+                    <li>
+                        <Link href="#" class="block py-2 px-3 rounded hover:text-gray-200 md:border-0 md:p-0 text-white">Community</Link>
+                    </li>
+                    <li>
+                        <Link href="{{route('login')}}" class="block py-2 px-3 rounded hover:text-gray-200 md:border-0 md:p-0 text-white">Login</Link>
+                    </li>
+                    <li>
+                        <Link href="{{route('register')}}" class="block py-2 px-3 rounded hover:text-gray-200 md:border-0 md:p-0 text-white">Register</Link>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>
+
+
+
 </x-splade-data>

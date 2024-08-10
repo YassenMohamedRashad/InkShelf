@@ -1,3 +1,3 @@
 <x-layout>
-        @include('home.hero')
+    @include('home.hero')
 </x-layout>
