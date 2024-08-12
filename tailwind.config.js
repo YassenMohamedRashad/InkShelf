@@ -10,12 +10,22 @@ export default {
         "./storage/framework/views/*.php",
         "./resources/views/**/*.blade.php",
         "./resources/js/**/*.vue",
+        "./node_modules/flowbite/**/*.js"
         // "./app/Forms/*.php",
         // "./app/Tables/*.php",
     ],
 
     theme: {
-        extend: {},
+        extend: {
+            backgroundImage: {
+                'hero-image': "url('/images/home/hero.jpg')",
+            },
+            colors: {
+                'orange-color': '#FF971E',
+                'dark-orange': '#D78300'
+
+            },
+        },
     },
 
     plugins: [forms, typography],

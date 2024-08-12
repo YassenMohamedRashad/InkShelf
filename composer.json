@@ -8,6 +8,7 @@
         "php": "^8.2",
         "guzzlehttp/guzzle": "^7.9",
         "laravel/framework": "^11.9",
+        "laravel/socialite": "^5.15",
         "laravel/tinker": "^2.9",
         "protonemedia/laravel-splade": "^1.4",
         "protonemedia/laravel-splade-breeze": "^2.5"

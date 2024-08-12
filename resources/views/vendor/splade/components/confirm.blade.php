@@ -34,7 +34,7 @@
                                                 name="password"
                                                 placeholder="{{ __('Password') }}"
                                                 v-on:change="confirm.setPassword($event.target.value)"
-                                                class="rounded-md block w-full border-0 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 disabled:opacity-50 disabled:bg-gray-50 disabled:cursor-not-allowed"
+                                                class="rounded-md block w-full border-0 focus:border-orange-color focus:ring focus:ring-orange-color focus:ring-opacity-50 disabled:opacity-50 disabled:bg-gray-50 disabled:cursor-not-allowed"
                                                 @keyup.enter="confirm.confirm"
                                                 :disabled="confirm.submitting"
                                             />
@@ -50,7 +50,7 @@
                                         type="button"
                                         class="inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 text-base font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 sm:w-auto sm:text-sm"
                                         :class="{
-                                            'bg-indigo-500 hover:bg-indigo-700 focus:ring-indigo-500': !confirm.confirmDanger,
+                                            'bg-orange-color hover:bg-dark-orange': !confirm.confirmDanger,
                                             'bg-red-500 hover:bg-red-700 focus:ring-red-500': confirm.confirmDanger
                                         }"
                                         @click.prevent="confirm.confirm"
