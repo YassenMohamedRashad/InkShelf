@@ -49,12 +49,12 @@ Route::middleware('splade')->group(function () {
             Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
             Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
         });
-        Route::get('/test-books', function (GoogleBooksApi $googleBooksApi) {
-            return $googleBooksApi->makeAPIRequest("subject: 'Science Fiction'");
-        });
+
+
         Route::get('/test', function (GoogleBooksApi $googleBooksApi) {
-            return $googleBooksApi->makeAPIRequest("علوم");
+            return $googleBooksApi->makeAPIRequest("programming");
         });
+
         Route::get('/test-locale', function () {
             Book::create([
                 'author_id' => Author::factory()->create()->id,

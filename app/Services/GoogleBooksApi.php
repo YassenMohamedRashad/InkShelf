@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Http;
 
 class GoogleBooksApi
 {
@@ -13,10 +14,15 @@ class GoogleBooksApi
         $this->client = $client;
     }
 
-    public function makeAPIRequest($q)
+    public function makeAPIRequest($q,$lang='en',$max_result=40)
     {
         try {
-            $response = $this->client->get("https://www.googleapis.com/books/v1/volumes?q=physics&maxResults=40&langRestrict=ar&key=".env('GOOGLE_API_KEY'));
+            $response = Http::get("https://www.googleapis.com/books/v1/volumes", [
+                'q' => $q,
+                'maxResults' => $max_result,
+                'langRestrict' => $lang,
+                'key' => env('GOOGLE_API_KEY')
+            ]);
         } catch (\Throwable $th) {
             throw new \Exception('Error while making API request:'. $th->getMessage());
         }

@@ -13,4 +13,5 @@ class Book extends Model
 
     public $translatedAttributes = ['title', 'description'];
     protected $guarded = ['id'];
+
 }

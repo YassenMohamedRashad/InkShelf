@@ -15,11 +15,13 @@ return new class extends Migration
             $table->id();
             $table->text('cover')->nullable();
             $table->float('rate')->nullable();
+            $table->string('identifier')->unique()->nullable();
             $table->integer('no_rates')->default(0);
             $table->string('pdf')->nullable();
             $table->string('audio')->nullable();
-            $table->foreignId('author_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
-            $table->foreignId('category_id')->constrained('book_categories')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->string('webReaderLink')->nullable();
+            $table->json('authors')->nullable();
+            $table->json('categories')->nullable();
             $table->timestamps();
         });
     }

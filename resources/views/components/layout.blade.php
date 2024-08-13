@@ -1,5 +1,5 @@
 <div class="min-h-screen bg-gray-100">
-    <x-navigation/>
+    <x-navigation />
     <!-- Page Heading -->
     @if(isset($header))
     <header class="bg-white shadow">
@@ -12,7 +12,7 @@
     @endif
 
     <!-- Page Content -->
-    <main>
+    <main class="font-Rubik rtl:font-Cairo">
         {{ $slot }}
     </main>
 </div>

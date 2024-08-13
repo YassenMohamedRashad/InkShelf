@@ -25,6 +25,10 @@ export default {
                 'dark-orange': '#D78300'
 
             },
+            fontFamily: {
+                'Rubik': 'Rubik',
+                'Cairo':'Cairo'
+            },
         },
     },
 

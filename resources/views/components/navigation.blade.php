@@ -1,5 +1,5 @@
 <x-splade-data default="{ open: false }">
-    <div class="navbar bg-white">
+    <div class="navbar bg-white px-5">
         <div class="navbar-start">
             <div class="dropdown">
                 <div tabindex="0" role="button" class="btn btn-ghost">
@@ -44,7 +44,7 @@
                                 <li class="p-2 bg-gray-100 hover:bg-orange-200  font-bold">
                                     <details class="dropdown">
                                         <summary class="">Language <span class="text-orange-color">({{LaravelLocalization::getCurrentLocaleNative()}})</span></summary>
-                                        <ul class="menu dropdown-content bg-gray-300 rounded-box z-[5] w-52 p-2 shadow">
+                                        <ul class="menu dropdown-content bg-gray-100 divide-y-2 space-y-1 z-[5] w-full p-2 shadow">
                                             @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
                                             <li>
                                                 <Link away rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
@@ -89,7 +89,20 @@
         </div>
 
         <div class="navbar-end">
-            <a class="btn">Button</a>
+            @auth
+            <div class="dropdown dropdown-end">
+                <img tabindex="0" src="{{auth()->user()->image}}" role="button" class="w-10 h-10 rounded-full" />
+                <ul tabindex="0" class="dropdown-content menu divide-y-2 space-y-2 text-gray-900 bg-white rounded-lg z-[1] w-52 p-2 shadow">
+                    <li>
+                        <Link class="hover:bg-gray-200 w-full" href="{{route('profile.edit')}}">{{__('profile')}}</Link>
+                    </li>
+                </ul>
+            </div>
+            @else
+            <x-splade-button type="link" href="{{route('login')}}">
+                {{__('login')}}
+            </x-splade-button>
+            @endauth
         </div>
     </div>
 
