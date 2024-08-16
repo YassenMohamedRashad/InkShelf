@@ -16,8 +16,7 @@ return new class extends Migration
             $table->foreignId('book_id');
             $table->string('locale')->index();
             $table->string('title');
-            $table->text('description');
-
+            $table->text('description')->nullable();
             $table->unique(['book_id', 'locale']);
             $table->timestamps();
         });

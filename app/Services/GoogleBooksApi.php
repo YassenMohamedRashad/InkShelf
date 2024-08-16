@@ -7,12 +7,6 @@ use Illuminate\Support\Facades\Http;
 
 class GoogleBooksApi
 {
-    protected $client;
-
-    public function __construct(Client $client)
-    {
-        $this->client = $client;
-    }
 
     public function makeAPIRequest($q,$lang='en',$max_result=40)
     {

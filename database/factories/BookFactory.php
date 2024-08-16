@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Category_book;
 use App\Services\GoogleBooksApi;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -29,14 +30,28 @@ class BookFactory extends Factory
         $booksData = [];
 
         foreach ($data->items as $item) {
+
             $booksData[] = [
-                'cover' => $item->volumeInfo->imageLinks->thumbnail ?? null,
-                'identifier' => isset($item->volumeInfo->industryIdentifiers) ? $item->volumeInfo->industryIdentifiers[0]->identifier : null,
-                'pdf' => $item->accessInfo->pdf->acsTokenLink ?? null,
-                'audio' => null,
-                'webReaderLink' => $item->accessInfo->webReaderLink ?? null,
-                'authors' => isset($item->volumeInfo->authors) ? json_encode($item->volumeInfo->authors) : null,
-                'categories' => isset($item->volumeInfo->categories) ? json_encode($item->volumeInfo->categories) : null,
+                [
+                    'cover' => $item->volumeInfo->imageLinks->thumbnail ?? null,
+                    'identifier' => isset($item->volumeInfo->industryIdentifiers) ? $item->volumeInfo->industryIdentifiers[0]->identifier : null,
+                    'pdf' => $item->accessInfo->pdf->acsTokenLink ?? null,
+                    'audio' => null,
+                    'webReaderLink' => $item->accessInfo->webReaderLink ?? null,
+                    'title' => $item->volumeInfo->title,
+                    'en' => [
+                        'title' => $item->volumeInfo->title,
+                        'description' => $item->volumeInfo->description ?? null,
+                    ],
+                    'ar' => [
+                        'title' => $item->volumeInfo->title,
+                        'description' => $item->volumeInfo->description ?? null,
+                    ],
+                ],
+                [
+                    'categories' => $item->volumeInfo->categories ?? null,
+                    'authors' => $item->volumeInfo->authors ?? null
+                ]
             ];
         }
 

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BooksController;
 use App\Http\Controllers\ProfileController;
 use App\Models\Author;
 use App\Models\Book;
@@ -52,24 +53,14 @@ Route::middleware('splade')->group(function () {
 
 
         Route::get('/test', function (GoogleBooksApi $googleBooksApi) {
-            return $googleBooksApi->makeAPIRequest("programming");
+            $book = Book::find(1);
+            $categories = $book->categories;
+            return $categories;
         });
 
-        Route::get('/test-locale', function () {
-            Book::create([
-                'author_id' => Author::factory()->create()->id,
-                'category_id' => Book_category::factory()->create()->id,
-                'en' => [
-                    'title' => 'Test Book',
-                    'description' => 'Test Book Description',
-                ],
-                'ar' => [
-                    'title' => 'الكتاب التجريبي',
-                    'description' => 'وصف الكتاب التجريبي',
-                ]
-            ]);
-        });
+
+        Route::get('/live_search', [BooksController::class, 'live_search'])->name('books.live_search');
+
         require __DIR__ . '/auth.php';
     });
-    // Registers routes to support the interactive components...
 });

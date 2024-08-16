@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" dir="{{LaravelLocalization::getCurrentLocale() == "ar" ? 'rtl': 'ltr'}}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" dir="{{LaravelLocalization::getCurrentLocale() == "ar" ? 'rtl': 'ltr'}}" data-theme="light">
 
 <head>
     <meta charset="utf-8">
@@ -26,15 +26,13 @@
         }
     </style>
     <!-- Scripts -->
-    @vite(['resources/css/app.css','resources/js/app.js'])
-
     @spladeHead
+    @vite(['resources/css/app.css'])
 </head>
 
 <body>
-
     @splade
-
+    @vite(['resources/js/app.js'])
 </body>
 
 </html>

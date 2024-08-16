@@ -20,8 +20,6 @@ return new class extends Migration
             $table->string('pdf')->nullable();
             $table->string('audio')->nullable();
             $table->string('webReaderLink')->nullable();
-            $table->json('authors')->nullable();
-            $table->json('categories')->nullable();
             $table->timestamps();
         });
     }

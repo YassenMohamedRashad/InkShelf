@@ -1,5 +1,6 @@
 import forms from "@tailwindcss/forms";
 import typography from "@tailwindcss/typography";
+import daisyui from "daisyui";
 
 /* @type {import('tailwindcss').Config} */
 export default {
@@ -10,7 +11,6 @@ export default {
         "./storage/framework/views/*.php",
         "./resources/views/**/*.blade.php",
         "./resources/js/**/*.vue",
-        "./node_modules/flowbite/**/*.js"
         // "./app/Forms/*.php",
         // "./app/Tables/*.php",
     ],
@@ -22,15 +22,21 @@ export default {
             },
             colors: {
                 'orange-color': '#FF971E',
-                'dark-orange': '#D78300'
+                'dark-orange': '#D78300',
+                'light-orange': '#FFAB32',
 
             },
             fontFamily: {
                 'Rubik': 'Rubik',
-                'Cairo':'Cairo'
+                'Cairo': 'Cairo'
             },
         },
     },
 
-    plugins: [forms, typography],
+    plugins: [
+        forms,
+        typography,
+        daisyui
+
+    ],
 };

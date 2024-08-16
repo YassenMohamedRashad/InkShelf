@@ -10,6 +10,7 @@
         <span class="mx-2">|</span>
         <span>Continue with Google</span>
     </x-splade-button>
+    <div class="divider">OR</div>
 
     <x-splade-form action="{{ route('login') }}" class="space-y-4">
         <!-- Email Address -->
@@ -23,7 +24,7 @@
                 </x-slot:icon>
             </x-splade-input>
         </label>
-    <Link href="/" confirm>Hello</Link>
+        <Link href="/" confirm>Hello</Link>
         <x-splade-input id="password" type="password" name="password" :label="__('Password')" required autocomplete="current-password">
             <x-slot:icon>
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">

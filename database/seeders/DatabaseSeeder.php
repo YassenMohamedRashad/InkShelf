@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Services\GoogleBooksApi;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -13,18 +14,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
-        // User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
-        $this->call([
-            BookSeeder::class,
-            // UsersTableSeeder::class,
-            // CategoriesTableSeeder::class,
-            // OrdersTableSeeder::class,
-            // OrderItemsTableSeeder::class,
-        ]);
+        $googleBooksApi = new GoogleBooksApi();
+        $bookSeeder = new BookSeeder();
+        $bookSeeder->seedBooksFromGoogleApi($googleBooksApi,"programming");
     }
 }

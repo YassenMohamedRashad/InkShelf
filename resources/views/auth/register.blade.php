@@ -10,6 +10,7 @@
             <span class="mx-2">|</span>
             <span>Continue with Google</span>
         </x-splade-button>
+        <div class="divider">OR</div>
         <x-splade-form action="{{ route('register') }}" class="space-y-4" enctype="multipart/form-data">
             <x-splade-file name="image" filepond accept="image/png,image/jpeg" max-size="2MB" preview label="Upload your photo (optional)" />
             <x-splade-input id="name" type="text" name="name" :label="__('Name')" required autofocus>
@@ -20,7 +21,6 @@
                     </svg>
                 </x-slot:icon>
             </x-splade-input>
-
 
             <x-splade-input id="email" type="email" name="email" :label="__('Email')" required>
                 <x-slot:icon>

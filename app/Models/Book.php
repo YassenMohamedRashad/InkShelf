@@ -14,4 +14,9 @@ class Book extends Model
     public $translatedAttributes = ['title', 'description'];
     protected $guarded = ['id'];
 
+
+    public function categories()
+    {
+        return $this->belongsToMany(Book_category::class, 'category_books', 'book_id', 'category_id');
+    }
 }
