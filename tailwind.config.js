@@ -9,12 +9,13 @@ export default {
         './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
+        './app/View/Components/**/*.blade.php',  
     ],
 
     theme: {
         extend: {
             backgroundImage: {
-                'hero-image': "/images/home/hero.jpg",
+                'hero-image': "url('/images/home/hero.jpg')",
             },
             fontFamily: {
                 sans: [ 'Figtree', ...defaultTheme.fontFamily.sans ],

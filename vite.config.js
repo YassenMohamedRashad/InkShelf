@@ -11,4 +11,10 @@ export default defineConfig({
             refresh: true,
         }),
     ],
+    server: {
+        watch: {
+            usePolling: true,
+            ignored: [ '**/node_modules/**', '**/vendor/**' ],
+        },
+    },
 });

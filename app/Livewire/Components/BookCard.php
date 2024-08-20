@@ -19,6 +19,11 @@ class BookCard extends Component
         if (!Auth::check()) {
             return $this->redirectRoute('login');
         }
+        $user = Auth::user();
+
+        if (!$user->hasVerifiedEmail()) {
+            return $this->redirectRoute('verification.notice');
+        }
         try {
             $book = Book::find($book_id);
             if (!$book) {
