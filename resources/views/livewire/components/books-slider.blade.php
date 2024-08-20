@@ -1,7 +1,7 @@
 <section class="p-5">
     <h2 class="text-left rtl:text-right text-xl lg:text-2xl py-3">{{$category->name}} :</h2>
+
     <div
-        wire:ignore
         x-init="
     new Swiper($el,{
     modules: [ Navigation, Pagination ],
@@ -43,7 +43,6 @@
     "
         class="swiper">
         <!-- Additional required wrapper -->
-
         <div class="swiper-wrapper">
             @foreach ($category->books()->get() as $book)
             <livewire:components.book-card :book="$book" />

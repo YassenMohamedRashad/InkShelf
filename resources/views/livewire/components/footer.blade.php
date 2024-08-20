@@ -1,5 +1,5 @@
-<div class="shadow">
-    <footer class="footer bg-base-200 text-base-content p-10">
+<div class="bg-gray-200 shadow">
+    <footer class="footer text-base-content p-10">
         <nav>
             <h6 class="footer-title">Services</h6>
             <a class="link link-hover">Branding</a>
@@ -21,7 +21,7 @@
             <a class="link link-hover">Cookie policy</a>
         </nav>
     </footer>
-    <footer class="footer bg-base-200 text-base-content border-base-300 border-t px-10 py-4">
+    <footer class="footer text-base-content border-base-300 border-t px-10 py-4 shadow-2xl">
         <aside class="grid-flow-col items-center">
             <x-app-logo class="text-3xl"/>
             <p>

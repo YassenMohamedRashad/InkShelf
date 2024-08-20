@@ -24,8 +24,6 @@
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
-
-
 </head>
 
 <body>
@@ -36,9 +34,9 @@
         </main>
     </div>
     <livewire:components.footer />
-    @livewireScripts
 
     <!-- sweet alert -->
+    @livewireScripts
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <x-livewire-alert::scripts />
 </body>

@@ -89,7 +89,7 @@
         <div class="w-full sm:navbar-end place-content-end">
             <div class="w-full relative">
                 <form class="join w-full">
-                    <livewire:actions.BooksLiveSearch class="w-full"/>
+                    <livewire:actions.BooksLiveSearch class="w-full" />
                     <button type="submit" class="px-3 hover:bg-dark-orange transition join-item rounded-r-full bg-orange-color text-white border-orange-color">
                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 256 256">
                             <path fill="currentColor" d="M232.49 215.51L185 168a92.12 92.12 0 1 0-17 17l47.53 47.54a12 12 0 0 0 17-17ZM44 112a68 68 0 1 1 68 68a68.07 68.07 0 0 1-68-68" />
@@ -200,6 +200,4 @@
             </div>
         </div>
     </div>
-
-
 </div>
