@@ -1,9 +1,7 @@
 <?php
 
-uses(
-    Tests\DuskTestCase::class,
-    // Illuminate\Foundation\Testing\DatabaseMigrations::class,
-)->in('Browser');
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,10 +14,7 @@ uses(
 |
 */
 
-uses(
-    Tests\TestCase::class,
-    // Illuminate\Foundation\Testing\RefreshDatabase::class,
-)->in('Feature');
+uses(TestCase::class, RefreshDatabase::class)->in('Feature');
 
 /*
 |--------------------------------------------------------------------------

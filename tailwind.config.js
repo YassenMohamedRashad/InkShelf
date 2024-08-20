@@ -1,24 +1,25 @@
-import forms from "@tailwindcss/forms";
-import typography from "@tailwindcss/typography";
-import daisyui from "daisyui";
+import defaultTheme from 'tailwindcss/defaultTheme';
+import forms from '@tailwindcss/forms';
+import daisyui from 'daisyui';
 
-/* @type {import('tailwindcss').Config} */
+
+/** @type {import('tailwindcss').Config} */
 export default {
     content: [
-        "./vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php",
-        "./vendor/protonemedia/laravel-splade/lib/**/*.vue",
-        "./vendor/protonemedia/laravel-splade/resources/views/**/*.blade.php",
-        "./storage/framework/views/*.php",
-        "./resources/views/**/*.blade.php",
-        "./resources/js/**/*.vue",
-        // "./app/Forms/*.php",
-        // "./app/Tables/*.php",
+        './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
+        './storage/framework/views/*.php',
+        './resources/views/**/*.blade.php',
     ],
 
     theme: {
         extend: {
             backgroundImage: {
-                'hero-image': "url('/images/home/hero.jpg')",
+                'hero-image': "/images/home/hero.jpg",
+            },
+            fontFamily: {
+                sans: [ 'Figtree', ...defaultTheme.fontFamily.sans ],
+                'Rubik': 'Rubik',
+                'Cairo': 'Cairo'
             },
             colors: {
                 'orange-color': '#FF971E',
@@ -26,17 +27,14 @@ export default {
                 'light-orange': '#FFAB32',
 
             },
-            fontFamily: {
-                'Rubik': 'Rubik',
-                'Cairo': 'Cairo'
-            },
+
+
+
         },
     },
 
     plugins: [
         forms,
-        typography,
         daisyui
-
     ],
 };

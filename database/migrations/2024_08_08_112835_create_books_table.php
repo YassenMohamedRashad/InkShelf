@@ -17,9 +17,12 @@ return new class extends Migration
             $table->float('rate')->nullable();
             $table->string('identifier')->unique()->nullable();
             $table->integer('no_rates')->default(0);
-            $table->string('pdf')->nullable();
-            $table->string('audio')->nullable();
+            $table->text('pdf')->nullable();
+            $table->text('audio')->nullable();
             $table->string('webReaderLink')->nullable();
+            $table->decimal('price');
+            $table->integer('stock');
+            $table->string('publishedDate')->nullable();
             $table->timestamps();
         });
     }

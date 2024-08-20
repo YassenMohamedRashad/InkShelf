@@ -36,8 +36,11 @@ class BookFactory extends Factory
                     'cover' => $item->volumeInfo->imageLinks->thumbnail ?? null,
                     'identifier' => isset($item->volumeInfo->industryIdentifiers) ? $item->volumeInfo->industryIdentifiers[0]->identifier : null,
                     'pdf' => $item->accessInfo->pdf->acsTokenLink ?? null,
+                    'price' => fake()->numberBetween(50,500),
+                    'stock' => fake()->numberBetween(0,100),
                     'audio' => null,
                     'webReaderLink' => $item->accessInfo->webReaderLink ?? null,
+                    'publishedDate' => $item->volumeInfo->publishedDate??null,
                     'title' => $item->volumeInfo->title,
                     'en' => [
                         'title' => $item->volumeInfo->title,
