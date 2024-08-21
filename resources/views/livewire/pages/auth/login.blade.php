@@ -99,7 +99,7 @@ new #[Layout('layouts.guest')] class extends Component
                 </a>
                 @endif
                 @if (Route::has('register'))
-                <a class="underline text-sm text-gray-400 hover:text-gray-900 rounded-md focus:ring-2 focus:ring-offset-2 focus:outline-none" href="{{ route('register') }}" wire:navigate>
+                <a class="underline text-sm text-gray-400 hover:text-gray-900 rounded-md focus:ring-2 focus:ring-offset-2 focus:outline-none" href="{{ route('register') }}">
                     {{ __("Doesn't have email ?") }}
                 </a>
                 @endif

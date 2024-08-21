@@ -4,12 +4,22 @@ namespace App\Livewire\Actions;
 
 use App\Models\Book;
 use App\Services\GoogleBooksApi;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 
 class BooksLiveSearch extends Component
 {
+    use LivewireAlert;
     public $class;
     public $search_term = '';
+
+    public function filterBook($book){
+        if(isset($book['id'])){
+            $this->alert('success','im work');
+            return $this->redirect('/',true);
+        }
+        dd($book);
+    }
 
 
 
@@ -29,7 +39,7 @@ class BooksLiveSearch extends Component
                 ->take(10)
                 ->get();
 
-            $api_books = Book::factory()->withGoogleBooksData($googleBooksApi, $this->search_term, max_result:7);
+            $api_books = Book::factory()->withGoogleBooksData($googleBooksApi, $this->search_term, max_result: 7);
             $api_books_array = is_array($api_books) ? $api_books : $api_books->toArray();
 
             $processed_api_books = array_map(function ($item) {

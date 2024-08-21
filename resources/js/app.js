@@ -24,3 +24,8 @@ FilePond.registerPlugin( FilePondPluginImagePreview, FilePondPluginImageCrop );
 window.Alpine = Alpine;
 window.FilePond = FilePond;
 Alpine.start();
+
+
+document.addEventListener('livewire:load', () => {
+    window.livewire.on('redirect', url => Turbolinks.visit(url))
+})
