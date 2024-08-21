@@ -22,7 +22,7 @@
 
 
                     @if (count($carts) == 0)
-                        <h2 class="text-3xl text-gray-300 text-center">Add some books to your cart</h2>
+                    <h2 class="text-3xl text-gray-300 text-center">Add some books to your cart</h2>
                     @endif
                     @foreach ($carts as $cart)
                     <div class="grid grid-cols-3 items-center gap-4">
@@ -33,7 +33,7 @@
 
                             <div>
                                 <h3 class="text-base font-bold text-gray-800">{{$cart->book->title}}</h3>
-                                <h6 class="text-xs text-red-500 cursor-pointer mt-0.5">Remove</h6>
+                                <button wire:click="remove_from_cart({{$cart->id}})" class="text-xs text-red-500 cursor-pointer mt-0.5">Remove</button>
 
                                 <div class="flex gap-4 mt-4">
                                     <div>

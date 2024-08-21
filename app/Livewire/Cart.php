@@ -13,6 +13,11 @@ class Cart extends Component
     use LivewireAlert;
     public $total;
 
+    public function remove_from_cart($cart_id){
+        ModelsCart::find($cart_id)->delete();
+        $this->dispatch('quantity-updated');
+        $this->alert('success', 'book removed from cart');
+    }
     public function increase_quantity($cart_id)
     {
         $cart = ModelsCart::find($cart_id);
