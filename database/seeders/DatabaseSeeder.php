@@ -16,11 +16,10 @@ class DatabaseSeeder extends Seeder
     {
         $googleBooksApi = new GoogleBooksApi();
         $bookSeeder = new BookSeeder();
-        $bookSeeder->seedBooksFromGoogleApi($googleBooksApi,"science");
-        $bookSeeder->seedBooksFromGoogleApi($googleBooksApi,"math");
-        $bookSeeder->seedBooksFromGoogleApi($googleBooksApi,"programming");
-        $bookSeeder->seedBooksFromGoogleApi($googleBooksApi,"احصاء");
-        $bookSeeder->seedBooksFromGoogleApi($googleBooksApi,"مصر القديمة");
-        $bookSeeder->seedBooksFromGoogleApi($googleBooksApi,"التاريخ الاسلامي");
+
+        $search_terms = config('googleBooksSeed', 'laravel');
+        foreach ($search_terms as $search_term) {
+            $bookSeeder->seedBooksFromGoogleApi($googleBooksApi, $search_term);
+        }
     }
 }

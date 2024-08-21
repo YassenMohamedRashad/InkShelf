@@ -9,12 +9,14 @@ use Livewire\Component;
 
 class Navbar extends Component
 {
-    public $user_cart_count;
+    public $user_cart_count = 0;
     protected $listeners = ['logout' => 'logout'];
 
     #[On('added-cart')]
     public function mount(){
-        $this->user_cart_count = Auth::user()->carts()->count();
+        if(Auth::check()){
+            $this->user_cart_count = Auth::user()->carts()->count();
+        }
     }
     public function logout(){
         return $this->redirect(route('logout'), true);
