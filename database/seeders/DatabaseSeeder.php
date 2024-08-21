@@ -17,11 +17,10 @@ class DatabaseSeeder extends Seeder
         $googleBooksApi = new GoogleBooksApi();
         $bookSeeder = new BookSeeder();
         $bookSeeder->seedBooksFromGoogleApi($googleBooksApi,"science");
-        $bookSeeder->seedBooksFromGoogleApi($googleBooksApi,"maths");
+        $bookSeeder->seedBooksFromGoogleApi($googleBooksApi,"math");
         $bookSeeder->seedBooksFromGoogleApi($googleBooksApi,"programming");
-        $bookSeeder->seedBooksFromGoogleApi($googleBooksApi,"stories");
-        $bookSeeder->seedBooksFromGoogleApi($googleBooksApi,"harry potter");
-        $bookSeeder->seedBooksFromGoogleApi($googleBooksApi,"روايات عربية");
-        $bookSeeder->seedBooksFromGoogleApi($googleBooksApi,"قصص قصيرة");
+        $bookSeeder->seedBooksFromGoogleApi($googleBooksApi,"احصاء");
+        $bookSeeder->seedBooksFromGoogleApi($googleBooksApi,"مصر القديمة");
+        $bookSeeder->seedBooksFromGoogleApi($googleBooksApi,"التاريخ الاسلامي");
     }
 }

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\auth\GoogleAuthController;
 use App\Http\Controllers\Auth\VerifyEmailController;
+use App\Livewire\Actions\Logout;
 use App\Livewire\Register;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -35,8 +36,5 @@ Route::middleware('auth')->group(function () {
     Volt::route('confirm-password', 'pages.auth.confirm-password')
         ->name('password.confirm');
 
-    Route::post('/logout', function () {
-        Auth::logout();
-        return redirect()->route('home');
-    })->name('logout');
+    Route::get('/logout',Logout::class)->name('logout');
 });

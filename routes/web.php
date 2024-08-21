@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\Cart;
 use App\Livewire\Home;
 use App\Livewire\SingleBook;
 use Illuminate\Support\Facades\Route;
@@ -11,8 +12,10 @@ Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
 
-
-Route::get('/book/{id}', SingleBook::class)->name('single-book');
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/book/{id}', SingleBook::class)->name('single-book');
+    Route::get('/cart', Cart::class)->name('cart');
+});
 
 Route::view('profile', 'profile')
     ->middleware(['auth'])

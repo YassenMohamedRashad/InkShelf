@@ -56,6 +56,8 @@ class BookCard extends Component
                     'toast' => true,
                 ]);
             }
+
+            $this->dispatch('added-cart');
         } catch (\Throwable $th) {
             return
             $this->alert('error', $th->getMessage(), [

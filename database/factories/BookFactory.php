@@ -33,6 +33,7 @@ class BookFactory extends Factory
 
             $booksData[] = [
                 [
+                    'google_id' => $item->id,
                     'cover' => $item->volumeInfo->imageLinks->thumbnail ?? null,
                     'identifier' => isset($item->volumeInfo->industryIdentifiers) ? $item->volumeInfo->industryIdentifiers[0]->identifier : null,
                     'pdf' => $item->accessInfo->pdf->acsTokenLink ?? null,

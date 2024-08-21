@@ -4,9 +4,11 @@ namespace App\Livewire\Actions;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 class Logout
 {
+    use LivewireAlert;
     /**
      * Log the current user out of the application.
      */
@@ -16,6 +18,6 @@ class Logout
 
         Session::invalidate();
         Session::regenerateToken();
-        $this->redirect(route('home'));
+        $this->redirect(route('home'),true);
     }
 }

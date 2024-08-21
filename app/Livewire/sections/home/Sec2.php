@@ -11,7 +11,7 @@ class Sec2 extends Component
 
     public function mount(){
         $this->categories = Book_category::withCount('books')
-            ->having('books_count', '>', 5)
+            ->having('books_count', '>', 6)
             ->latest()
             ->get(20);
     }
