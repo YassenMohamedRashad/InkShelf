@@ -1,8 +1,10 @@
 <?php
 
 use App\Livewire\Cart;
+use App\Livewire\Checkout;
 use App\Livewire\Home;
 use App\Livewire\SingleBook;
+use App\Livewire\UserInfo;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -13,8 +15,10 @@ Route::view('dashboard', 'dashboard')
     ->name('dashboard');
 
 Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('user-info', UserInfo::class)->name('user-info');
     Route::get('/book/{id}', SingleBook::class)->name('single-book');
     Route::get('/cart', Cart::class)->name('cart');
+    Route::get('/checkout', Checkout::class)->name('checkout');
 });
 
 Route::view('profile', 'profile')

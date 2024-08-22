@@ -13,6 +13,16 @@ class Cart extends Component
     use LivewireAlert;
     public $total;
 
+
+    public function checkout(){
+        $carts = Auth::user()->carts();
+        if ($carts->count() === 0) {
+            $this->alert('error', 'Add books to your cart to checkout');
+            return;
+        }
+        return $this->redirect(route('checkout'), true);
+    }
+
     public function remove_from_cart($cart_id){
         ModelsCart::find($cart_id)->delete();
         $this->dispatch('quantity-updated');

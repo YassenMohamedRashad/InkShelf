@@ -75,11 +75,11 @@
                 <ul class="text-gray-800 space-y-4 my-2 py-8">
                     <li class="flex flex-wrap gap-4 text-base ">Shipping <span class="ml-auto line-through ">$2.00</span> <span class="font-bold text-red-600">0.00</span></li>
                     <li class="flex flex-wrap gap-4 text-base">Tax <span class="ml-auto line-through">$4.00</span><span class="font-bold text-red-600">0.00</span></li>
-                    <li class="flex flex-wrap gap-4 text-base font-bold">Total <span class="ml-auto">{{$total}}</span></li>
+                    <li class="flex flex-wrap gap-4 text-base font-bold">Total <span class="ml-auto">${{$total}}</span></li>
                 </ul>
 
                 <div class="space-y-2 my-2 py-8">
-                    <x-primary-button class="p-2 w-full font-bold text-base">
+                    <x-primary-button class="p-2 w-full font-bold text-base" wire:click="checkout">
                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24">
                             <path fill="currentColor" d="m10.6 16.6l7.05-7.05l-1.4-1.4l-5.65 5.65l-2.85-2.85l-1.4 1.4zM12 22q-2.075 0-3.9-.788t-3.175-2.137T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22m0-2q3.35 0 5.675-2.325T20 12t-2.325-5.675T12 4T6.325 6.325T4 12t2.325 5.675T12 20m0-8" />
                         </svg>

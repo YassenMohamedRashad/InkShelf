@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
-            $table->foreignId('book_id');
-            $table->integer('quantity');
-            $table->decimal('price', 10, 2);
+            $table->text('order_address');
+            $table->decimal('total_amount', 10, 2);
+            $table->string('payment_method')->default('cash');
             $table->enum('status', ['pending', 'processing', 'shipped', 'delivered', 'cancelled']);
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }
