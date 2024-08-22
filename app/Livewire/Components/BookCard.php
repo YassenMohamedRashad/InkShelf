@@ -17,12 +17,12 @@ class BookCard extends Component
 
     public function addToCart($book_id){
         if (!Auth::check()) {
-            return $this->redirectRoute('login');
+            return $this->redirect(route('login'),true);
         }
         $user = Auth::user();
 
         if (!$user->hasVerifiedEmail()) {
-            return $this->redirectRoute('verification.notice');
+            return $this->redirect(route('verification.notice'),true);
         }
         try {
             $book = Book::find($book_id);

@@ -14,6 +14,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        // $this->call(RolesAndPermissionsSeeder::class);
+        // User::factory(10)->admin()->create([
+        //     'name' => 'Admin' . random_int(1,10),
+        // ]);
+
+        // User::factory(10)->user()->create();
         $googleBooksApi = new GoogleBooksApi();
         $bookSeeder = new BookSeeder();
 

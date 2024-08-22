@@ -101,8 +101,8 @@
                 <div class="flex items-center gap-3">
                     @auth
                     <div class="dropdown dropdown-end">
-                        <div class="flex items-center justify-center w-[40px] h-[40px]">
-                            <img tabindex="0" src="{{auth()->user()->image}}" role="button" class="w-full h-full rounded-full object-cover" />
+                        <div class="flex items-center justify-center w-[35px] h-[35px]">
+                            <img tabindex="0" src="{{auth()->user()->image??asset('images/other/account_demo.png')}}" role="button" class="w-full h-full rounded-full object-cover" />
                         </div>
                         <ul tabindex="0" class="dropdown-content menu divide-y-2 space-y-2 text-gray-900 bg-white rounded-lg z-[1] w-52 p-2 shadow">
                             <li>
