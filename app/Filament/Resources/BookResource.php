@@ -17,6 +17,7 @@ use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\BookResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\BookResource\RelationManagers;
+use Filament\Tables\Actions\Action;
 
 class BookResource extends Resource
 {
@@ -35,8 +36,8 @@ class BookResource extends Resource
                 FileUpload::make('cover')->directory('images/books/covers')->image()
                     ->imageEditor()->imageEditorAspectRatios([
                         '1:1',
-                    ]),
-                TextInput::make('identifier'),
+                    ])->searchable(),
+                TextInput::make('identifier')->searchable(),
                 TextInput::make('title')->required(),
                 TextInput::make('price')->numeric()->required(),
                 TextInput::make('stock')->numeric()->required(),
@@ -71,7 +72,14 @@ class BookResource extends Resource
             ->actions([
                 Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
-                DeleteAction::make(),
+                Action::make('delete')
+                    ->label('delete')
+                    ->icon('heroicon-s-trash')
+                    ->requiresConfirmation()
+                    ->action(function (Book $record) {
+                        $record->delete();
+                    })
+                    ->color('danger'),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

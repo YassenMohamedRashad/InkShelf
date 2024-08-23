@@ -2,7 +2,7 @@
 
 namespace App\Livewire\Components;
 
-use App\Livewire\Actions\Logout;
+
 use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\On;
 use Livewire\Component;

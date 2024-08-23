@@ -15,7 +15,17 @@
     <div class="font-sans container mx-auto bg-white py-4">
         <div class="grid md:grid-cols-3 gap-4">
             <div class="md:col-span-2 bg-gray-100 p-4 rounded-md">
-                <h2 class="text-2xl font-bold text-gray-800">Cart</h2>
+                <div class="flex justify-between">
+                    <h2 class="text-2xl font-bold text-gray-800">Cart</h2>
+                    @if (Auth::user()->carts()->count() > 0)
+                    <button wire:click="clear_cart" class="border-0 text-red-600 font-bold flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24">
+                            <path fill="currentColor" d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z" />
+                        </svg>
+                        Clear
+                    </button>
+                    @endif
+                </div>
                 <hr class="border-gray-300 mt-4 mb-8" />
 
                 <div class="space-y-4 max-h-[400px] overflow-scroll scrollbar-hidden">

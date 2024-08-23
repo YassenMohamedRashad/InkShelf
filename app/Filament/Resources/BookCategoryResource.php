@@ -4,27 +4,26 @@ namespace App\Filament\Resources;
 
 use Filament\Forms;
 use Filament\Tables;
-use App\Models\Author;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
+use App\Models\Book_category;
 use Filament\Resources\Resource;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
 use Filament\Tables\Columns\ImageColumn;
-use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\FileUpload;
+use Filament\Tables\Actions\DeleteAction;
 use Illuminate\Database\Eloquent\Builder;
-use App\Filament\Resources\AuthorResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use App\Filament\Resources\AuthorResource\RelationManagers;
+use App\Filament\Resources\BookCategoryResource\Pages;
+use App\Filament\Resources\BookCategoryResource\RelationManagers;
 
-class AuthorResource extends Resource
+class BookCategoryResource extends Resource
 {
-    protected static ?string $model = Author::class;
+    protected static ?string $model = Book_category::class;
 
+    protected static ?string $navigationIcon = 'heroicon-s-book-open';
 
-
-    protected static ?string $navigationIcon = 'heroicon-s-users';
     public static function getNavigationBadge(): ?string
     {
         return static::getModel()::count();
@@ -34,15 +33,12 @@ class AuthorResource extends Resource
     {
         return $form
             ->schema([
-                FileUpload::make('image')->directory('images/authors/avatar')->image()
+                FileUpload::make('image')->directory('images/books-categories/images')->image()
                     ->imageEditor()->imageEditorAspectRatios([
                         '1:1',
                     ]),
-                TextInput::make('name')->required()->searchable(),
-                DatePicker::make('birth_date')->searchable(),
-                DatePicker::make('death_date')->searchable(),
-                TextInput::make('nationality')->searchable(),
-                TextInput::make('about')->searchable(),
+                TextInput::make('name')->required(),
+                TextInput::make('description'),
             ]);
     }
 
@@ -50,13 +46,11 @@ class AuthorResource extends Resource
     {
         return $table
             ->columns([
-                ImageColumn::make('image')
-                    ->circular(),
-                TextColumn::make('name'),
-                TextColumn::make('birth_date')->dateTime(),
-                TextColumn::make('death_date')->dateTime(),
-                TextColumn::make('nationality'),
-                TextColumn::make('about'),
+                ImageColumn::make('image')->circular()->searchable(),
+                TextColumn::make('name')->searchable(),
+                TextColumn::make('description')->searchable(),
+                TextColumn::make('created_at')->searchable(),
+                TextColumn::make('updated_at')->searchable(),
             ])
             ->filters([
                 //
@@ -64,6 +58,7 @@ class AuthorResource extends Resource
             ->actions([
                 Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
+                DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -82,10 +77,10 @@ class AuthorResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListAuthors::route('/'),
-            'create' => Pages\CreateAuthor::route('/create'),
-            'view' => Pages\ViewAuthor::route('/{record}'),
-            'edit' => Pages\EditAuthor::route('/{record}/edit'),
+            'index' => Pages\ListBookCategories::route('/'),
+            'create' => Pages\CreateBookCategory::route('/create'),
+            'view' => Pages\ViewBookCategory::route('/{record}'),
+            'edit' => Pages\EditBookCategory::route('/{record}/edit'),
         ];
     }
 }

@@ -14,6 +14,15 @@ class Cart extends Component
     public $total;
 
 
+    public function clear_cart(){
+        if (Auth::user()->carts()->count() > 0) {
+            Auth::user()->carts()->delete();
+            $this->dispatch('quantity-updated');
+            $this->alert('success', 'Cart cleared successfully');
+        }
+
+    }
+
     public function checkout(){
         $carts = Auth::user()->carts();
         if ($carts->count() === 0) {
