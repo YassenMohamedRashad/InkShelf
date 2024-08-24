@@ -4,6 +4,7 @@ use App\Livewire\Cart;
 use App\Livewire\Checkout;
 use App\Livewire\Home;
 use App\Livewire\SingleBook;
+use App\Livewire\TrackOrders;
 use App\Livewire\UserInfo;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -19,6 +20,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/book/{id}', SingleBook::class)->name('single-book');
     Route::get('/cart', Cart::class)->name('cart');
     Route::get('/checkout', Checkout::class)->name('checkout');
+    Route::get('/track-orders', TrackOrders::class)->name('track-orders');
 });
 
 Route::view('profile', 'profile')

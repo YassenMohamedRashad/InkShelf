@@ -13,7 +13,27 @@
         }
     </style>
     <h1 class="text-2xl lg:text-4xl text-center font-bold my-5">Order Summary</h1>
+    <hr>
+    <div class="p-5 flex justify-between">
+        <div>
+            <h5 class="font-bold text-lg">
+                {{auth()->user()->name}}
+            </h5>
+            <span class="text-gray-400 text-sm">
+                {{auth()->user()->email}}
+            </span>
+        </div>
 
+        <div>
+            <p class="font-bold">
+                Address : <span class="text-gray-600 font-normal">{{auth()->user()->address}}</span>
+            </p>
+            <p class="font-bold">
+                Phone number : <span class="text-gray-600 font-normal">{{auth()->user()->phone_number}}</span>
+            </p>
+        </div>
+
+    </div>
 
     <hr>
     <div class="max-h-[400px] overflow-y-scroll scrollbar-hidden">
