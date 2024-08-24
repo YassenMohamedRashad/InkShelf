@@ -36,8 +36,8 @@ class BookResource extends Resource
                 FileUpload::make('cover')->directory('images/books/covers')->image()
                     ->imageEditor()->imageEditorAspectRatios([
                         '1:1',
-                    ])->searchable(),
-                TextInput::make('identifier')->searchable(),
+                    ]),
+                TextInput::make('identifier'),
                 TextInput::make('title')->required(),
                 TextInput::make('price')->numeric()->required(),
                 TextInput::make('stock')->numeric()->required(),
@@ -55,11 +55,12 @@ class BookResource extends Resource
         return $table
             ->columns([
                 ImageColumn::make('cover'),
-                TextColumn::make('identifier'),
-                TextColumn::make('price'),
-                TextColumn::make('stock'),
-                TextColumn::make('publishedDate'),
-                TextColumn::make('webReaderLink'),
+                TextColumn::make('identifier')->searchable(),
+                TextColumn::make('title')->searchable(),
+                TextColumn::make('price')->searchable(),
+                TextColumn::make('stock')->searchable(),
+                TextColumn::make('publishedDate')->searchable(),
+                TextColumn::make('webReaderLink')->searchable(),
                 TextColumn::make('pdf'),
                 TextColumn::make('rate'),
                 TextColumn::make('no_rates'),
