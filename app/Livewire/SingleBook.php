@@ -33,7 +33,7 @@ class SingleBook extends Component
                     'toast' => true,
                 ]);
             }
-            $cart = Cart::where('user_id', 1)->where('book_id', $book_id)->first();
+            $cart = Cart::where('user_id', $user->id)->where('book_id', $book_id)->first();
             if ($cart) {
                 $cart->quantity += $this->quantity ?? 1;
                 $cart->price += $book->price * $this->quantity;
