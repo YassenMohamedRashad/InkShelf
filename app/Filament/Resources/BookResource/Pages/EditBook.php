@@ -17,4 +17,22 @@ class EditBook extends EditRecord
             Actions\DeleteAction::make(),
         ];
     }
+
+    protected function mutateFormDataBeforeFill(array $data): array
+    {
+        if (isset($data['cover'])) {
+            $data['cover'] = str_replace('storage/', '', $data['cover']);
+        }
+
+        return $data;
+    }
+
+    protected function mutateFormDataBeforeSave(array $data): array
+    {
+        if (isset($data['cover'])) {
+            $data['cover'] = 'storage/' . $data['cover'];
+        }
+
+        return $data;
+    }
 }

@@ -6,6 +6,7 @@ use App\Models\Book;
 use App\Models\Cart;
 use Illuminate\Support\Facades\Auth;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 class BookCard extends Component
@@ -68,6 +69,7 @@ class BookCard extends Component
         }
     }
 
+    #[On('loadMore')]
     public function render()
     {
         return view('livewire.components.book-card');

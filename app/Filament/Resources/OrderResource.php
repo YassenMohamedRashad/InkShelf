@@ -51,6 +51,7 @@ class OrderResource extends Resource
     {
         return $table
             ->columns([
+                TextColumn::make('id')->searchable(),
                 TextColumn::make('user.name')->searchable(),
                 TextColumn::make('order_address')->searchable(),
                 TextColumn::make('total_amount')->searchable(),

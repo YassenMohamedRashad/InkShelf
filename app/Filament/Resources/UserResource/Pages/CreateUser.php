@@ -9,4 +9,12 @@ use Filament\Resources\Pages\CreateRecord;
 class CreateUser extends CreateRecord
 {
     protected static string $resource = UserResource::class;
+
+    protected function mutateFormDataBeforeCreate(array $data): array
+    {
+        if (isset($data['image'])) {
+            $data['image'] = 'storage/' . $data['image'];
+            return $data;
+        }
+    }
 }

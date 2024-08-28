@@ -28,8 +28,8 @@
 
         <div class="w-full navbar-end place-content-end sm:max-w-[75%]">
             <div class="w-full relative">
-                <form class="join w-full">
-                    <livewire:actions.BooksLiveSearch class="w-full" />
+                <form class="join w-full" wire:submit.prevent="search">
+                    <livewire:actions.BooksLiveSearch class="w-full" name="search-term"/>
                     <button type="submit" class="px-3 hover:bg-dark-orange transition join-item rounded-r-full bg-orange-color text-white border-orange-color">
                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 256 256">
                             <path fill="currentColor" d="M232.49 215.51L185 168a92.12 92.12 0 1 0-17 17l47.53 47.54a12 12 0 0 0 17-17ZM44 112a68 68 0 1 1 68 68a68.07 68.07 0 0 1-68-68" />
@@ -111,11 +111,30 @@
                                     <span class="ms-2 block text-base">Your Orders</span>
                                 </a>
                             </li>
+                            <li class="p-2 hover:bg-orange-200 font-bold">
+                                <a wire:navigate class="text-sm w-full flex items-center justify-start" href="{{route('search')}}">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24">
+                                        <path fill="currentColor" d="M21 5c-1.11-.35-2.33-.5-3.5-.5c-1.95 0-4.05.4-5.5 1.5c-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6v14.65c0 .25.25.5.5.5c.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5c1.35-.85 3.8-1.5 5.5-1.5c1.65 0 3.35.3 4.75 1.05c.1.05.15.05.25.05c.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1m0 13.5c-1.1-.35-2.3-.5-3.5-.5c-1.7 0-4.15.65-5.5 1.5V8c1.35-.85 3.8-1.5 5.5-1.5c1.2 0 2.4.15 3.5.5z" />
+                                        <path fill="currentColor" d="M17.5 10.5c.88 0 1.73.09 2.5.26V9.24c-.79-.15-1.64-.24-2.5-.24c-1.7 0-3.24.29-4.5.83v1.66c1.13-.64 2.7-.99 4.5-.99M13 12.49v1.66c1.13-.64 2.7-.99 4.5-.99c.88 0 1.73.09 2.5.26V11.9c-.79-.15-1.64-.24-2.5-.24c-1.7 0-3.24.3-4.5.83m4.5 1.84c-1.7 0-3.24.29-4.5.83v1.66c1.13-.64 2.7-.99 4.5-.99c.88 0 1.73.09 2.5.26v-1.52c-.79-.16-1.64-.24-2.5-.24" />
+                                    </svg>
+                                    <span class="ms-2 block text-base">Books</span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
 
                     <div class="my-3">
                         <ul class="">
+                            @role('admin')
+                            <li class="p-2 hover:bg-orange-200 font-bold">
+                                <a class="text-sm w-full flex items-center justify-start" href="" wire:click.prevent="redirectToAdminDashboard">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24">
+                                        <path fill="currentColor" d="M5 21q-.825 0-1.412-.587T3 19V5q0-.825.588-1.412T5 3h6v18zm8 0v-9h8v7q0 .825-.587 1.413T19 21zm0-11V3h6q.825 0 1.413.588T21 5v5z" />
+                                    </svg>
+                                    <span class="ms-2 block text-base">Dashboard</span>
+                                </a>
+                            </li>
+                            @endrole
                             @auth
                             <li class="p-2 hover:bg-orange-200 font-bold">
                                 <a wire:navigate class="text-sm w-full flex items-center justify-start" href="{{route('profile')}}">

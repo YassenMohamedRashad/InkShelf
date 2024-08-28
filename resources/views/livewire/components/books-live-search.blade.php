@@ -1,8 +1,8 @@
 <div class="{{$class}} relative">
     <input
+        {{$name??""}}
         wire:model.live.debounce.500ms="search_term"
         type="text"
-        name="query"
         class="border-orange-color focus:ring-0 join-item w-full focus:border-dark-orange"
         placeholder="{{__('search for books , categories , ISBN .....')}}" />
 

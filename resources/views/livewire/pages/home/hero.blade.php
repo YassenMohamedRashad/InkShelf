@@ -20,9 +20,9 @@
                 </div>
                 <h1 class="max-w-2xl text-4xl text-white lg:text-black font-extrabold leading-none md:text-5xl xl:text-6xl rtl:text-white">{{__('READ AND ADD YOUR INSIGHT')}}</h1>
                 <p class="text-gray-300 lg:text-gray-400 mb-4 text-lg">fing all books you need in one place</p>
-                <x-primary-button class="p-3 focus:outline-none focus:ring-0 focus:border-0 m-auto lg:m-0">
+                <a href="{{route('search')}}" wire:navigate class="p-3 focus:outline-none focus:ring-0 focus:border-0 m-auto lg:m-0 text-white bg-orange-color rounded-xl hover:bg-dark-orange">
                     {{__("Let's start")}}
-                </x-primary-button>
+                </a>
             </div>
         </div>
         <div class="hidden lg:block">

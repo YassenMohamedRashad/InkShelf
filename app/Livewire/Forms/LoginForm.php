@@ -12,10 +12,10 @@ use Livewire\Form;
 
 class LoginForm extends Form
 {
-    #[Validate('required|string|email')]
+    #[Validate('required|string|email', message: "email or password is not correct")]
     public string $email = '';
 
-    #[Validate('required|string')]
+    #[Validate('required|string', message: "email or password is not correct")]
     public string $password = '';
 
     #[Validate('boolean')]

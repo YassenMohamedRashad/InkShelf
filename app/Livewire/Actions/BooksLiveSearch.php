@@ -111,7 +111,6 @@ class BooksLiveSearch extends Component
             }, $api_books_array);
 
             $books = array_slice(array_merge($books->toArray(), $processed_api_books), 0, 7);
-            // dd($processed_api_books);
         }
 
         return view('livewire.components.books-live-search', compact('books'));

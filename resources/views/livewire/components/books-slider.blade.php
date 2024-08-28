@@ -1,4 +1,4 @@
-<section class="p-5">
+<section class="p-5 my-5">
     <h2 class="text-left rtl:text-right text-xl lg:text-2xl py-3">{{$category->name}} :</h2>
 
     <div
@@ -20,23 +20,23 @@
                     slidesPerView: 2,  <!-- For very small screens -->
                 },
                 640: {
-                    slidesPerView: 3,
+                    slidesPerView: 2,
                 },
                 // Tailwind's medium screens
                 768: {
-                    slidesPerView: 4,
+                    slidesPerView: 3,
                 },
                 // Tailwind's large screens
                 1024: {
-                    slidesPerView: 5,
+                    slidesPerView: 4,
                 },
                 // Tailwind's extra-large screens
                 1280: {
-                    slidesPerView: 6,
+                    slidesPerView: 5,
                 },
                 // Tailwind's 2xl screens
                 1536: {
-                    slidesPerView: 7,
+                    slidesPerView: 6,
                 }
             }
     })

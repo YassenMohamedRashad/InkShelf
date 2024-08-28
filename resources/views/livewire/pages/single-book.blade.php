@@ -3,7 +3,7 @@
         <div class="flex flex-col md:flex-row -mx-4">
             <div class="md:flex-1 px-4 items-center justify-center align-middle">
                 <div class="rounded-lg mb-4 flex place-content-center">
-                    <img class="aspect-auto w-[300px] " src="{{$book->cover??asset('images/other/demo-book-poster.jpg')}}" alt="Book Image">
+                    <img class="aspect-auto w-[300px]" src="{{asset($book->cover)??asset('images/other/demo-book-poster.jpg')}}" alt="Book Image">
                 </div>
                 <div class="flex -mx-2 mb-4">
                     <div class="w-1/2 px-2">

@@ -46,6 +46,7 @@ class BookCategoryResource extends Resource
     {
         return $table
             ->columns([
+            TextColumn::make('id')->searchable(),
                 ImageColumn::make('image')->circular()->searchable(),
                 TextColumn::make('name')->searchable(),
                 TextColumn::make('description')->searchable(),

@@ -16,4 +16,13 @@ class ViewUser extends ViewRecord
             Actions\EditAction::make(),
         ];
     }
+
+
+    protected function mutateFormDataBeforeFill(array $data): array
+    {
+        if (isset($data['image'])) {
+            $data['image'] = str_replace('storage/', '', $data['image']);
+        }
+        return $data;
+    }
 }

@@ -64,14 +64,17 @@ class UserResource extends Resource
     {
         return $table
             ->columns([
+                TextColumn::make('id')->searchable(),
                 ImageColumn::make('image')
-                    ->circular(),
-                TextColumn::make('name'),
-                TextColumn::make('email'),
+                    ->circular()->state(function (User $record) {
+                return str_replace('storage/', '', $record->image);
+            })->defaultImageUrl(url('/images/other/account_demo.png')),
+                TextColumn::make('name')->searchable(),
+                TextColumn::make('email')->searchable(),
                 TextColumn::make('birth_date'),
-                TextColumn::make('gender'),
-                TextColumn::make('phone_number'),
-                TextColumn::make('address'),
+                TextColumn::make('gender')->searchable(),
+                TextColumn::make('phone_number')->searchable(),
+                TextColumn::make('address')->searchable(),
                 TextColumn::make('password'),
                 TextColumn::make('email_verified_at')->dateTime()
             ])

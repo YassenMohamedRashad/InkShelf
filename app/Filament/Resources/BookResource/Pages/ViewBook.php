@@ -16,4 +16,12 @@ class ViewBook extends ViewRecord
             Actions\EditAction::make(),
         ];
     }
+
+    protected function mutateFormDataBeforeFill(array $data): array
+    {
+        if (isset($data['cover'])) {
+            $data['cover'] = str_replace('storage/', '', $data['cover']);
+        }
+        return $data;
+    }
 }

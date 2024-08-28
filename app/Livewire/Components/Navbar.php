@@ -12,6 +12,16 @@ class Navbar extends Component
     public $user_cart_count = 0;
     protected $listeners = ['logout' => 'logout'];
 
+    public function redirectToAdminDashboard(){
+        return $this->redirect(route('filament.admin.pages.dashboard'));
+    }
+
+    public function search(){
+        $this->redirect(route('search',[
+            'searchTerm' => 'history'
+        ]),true);
+    }
+
     #[On('added-cart')]
     public function mount(){
         if(Auth::check()){

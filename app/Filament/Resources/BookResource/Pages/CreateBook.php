@@ -9,4 +9,13 @@ use Filament\Resources\Pages\CreateRecord;
 class CreateBook extends CreateRecord
 {
     protected static string $resource = BookResource::class;
+
+    protected function mutateFormDataBeforeCreate(array $data): array
+    {
+        if ($data['cover']) {
+            $data['cover'] = 'storage/' . $data['cover'];
+        }
+        return $data;
+    }
+
 }

@@ -33,6 +33,7 @@ class OrderItemResource extends Resource
     {
         return $form
             ->schema([
+                TextColumn::make('id')->searchable(),
                 Select::make('order_id')
                     ->relationship(name: 'order', titleAttribute: 'id')
                     ->required()

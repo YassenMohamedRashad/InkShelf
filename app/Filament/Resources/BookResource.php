@@ -54,7 +54,10 @@ class BookResource extends Resource
     {
         return $table
             ->columns([
-                ImageColumn::make('cover'),
+            TextColumn::make('id')->searchable(),
+                ImageColumn::make('cover')->state(function (Book $record) {
+                    return str_replace('storage/', '', $record->cover);
+                }),
                 TextColumn::make('identifier')->searchable(),
                 TextColumn::make('title')->searchable(),
                 TextColumn::make('price')->searchable(),

@@ -34,15 +34,16 @@ class AuthorResource extends Resource
     {
         return $form
             ->schema([
+                TextColumn::make('id'),
                 FileUpload::make('image')->directory('images/authors/avatar')->image()
                     ->imageEditor()->imageEditorAspectRatios([
                         '1:1',
                     ]),
-                TextInput::make('name')->required()->searchable(),
-                DatePicker::make('birth_date')->searchable(),
-                DatePicker::make('death_date')->searchable(),
-                TextInput::make('nationality')->searchable(),
-                TextInput::make('about')->searchable(),
+                TextInput::make('name')->required(),
+                DatePicker::make('birth_date'),
+                DatePicker::make('death_date'),
+                TextInput::make('nationality'),
+                TextInput::make('about'),
             ]);
     }
 
@@ -52,11 +53,11 @@ class AuthorResource extends Resource
             ->columns([
                 ImageColumn::make('image')
                     ->circular(),
-                TextColumn::make('name'),
+                TextColumn::make('name')->searchable(),
                 TextColumn::make('birth_date')->dateTime(),
                 TextColumn::make('death_date')->dateTime(),
-                TextColumn::make('nationality'),
-                TextColumn::make('about'),
+                TextColumn::make('nationality')->searchable(),
+                TextColumn::make('about')->searchable(),
             ])
             ->filters([
                 //
@@ -64,6 +65,7 @@ class AuthorResource extends Resource
             ->actions([
                 Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

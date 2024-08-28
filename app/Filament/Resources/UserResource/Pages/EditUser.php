@@ -17,4 +17,22 @@ class EditUser extends EditRecord
             Actions\DeleteAction::make(),
         ];
     }
+
+    protected function mutateFormDataBeforeFill(array $data): array
+    {
+        if (isset($data['image'])) {
+            $data['image'] = str_replace('storage/', '', $data['image']);
+        }
+
+        return $data;
+    }
+
+    protected function mutateFormDataBeforeSave(array $data): array
+    {
+        if (isset($data['image'])) {
+            $data['image'] = 'storage/' . $data['image'];
+        }
+
+        return $data;
+    }
 }
